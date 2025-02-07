@@ -4,7 +4,7 @@ async function sendMessage() {
 
     // 显示用户输入的消息
     chatContent.innerHTML += `<p><strong>You:</strong> ${userInput}</p>`;
-
+    
     // 清空输入框
     document.getElementById('user-input').value = '';
 
@@ -22,6 +22,8 @@ async function sendMessage() {
             })
         });
 
+        console.log('Response:', response);
+
         if(response.ok) {
             let reader = response.body.getReader();
             let decoder = new TextDecoder('utf-8');
@@ -32,6 +34,7 @@ async function sendMessage() {
                 if(done) break;
 
                 const chunk = decoder.decode(value, { stream: true });
+                console.log('Chunk:', chunk);
                 const lines = chunk.split('\n').map(l => l.trim()).filter(l => l.startsWith('data:') && l !== 'data:[DONE]');
 
                 for(const line of lines) {
