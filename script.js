@@ -13,7 +13,7 @@ async function script() {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
-                'Authorization': 'Bearer YOUR_BEARER_TOKEN'
+                'Authorization': 'c157bd35e7d0427aaa98406a997469ec'
             },
             body: JSON.stringify({
                 "model": "7ba7726dad4c4ea4ab7f39c7741aea68",
