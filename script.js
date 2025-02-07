@@ -1,4 +1,4 @@
-async function script() {
+async function sendMessage() {
     const userInput = document.getElementById('user-input').value;
     const chatContent = document.getElementById('chat-content');
 
